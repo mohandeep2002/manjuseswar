@@ -14,8 +14,10 @@ def login(request):
     if request.method == "POST":
         emailid = request.POST.get('emailid')
         password = request.POST.get('password')
+        print(emailid, password)
         member = Member.get_member_by_email(emailid)
         flag = Member.objects.filter(Q(emailid=emailid) & Q(password=password))
+        print(member)
         print(flag)
         print(member)
         return HttpResponse("success")
